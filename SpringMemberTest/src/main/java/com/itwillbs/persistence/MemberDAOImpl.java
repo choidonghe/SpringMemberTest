@@ -54,9 +54,17 @@ public class MemberDAOImpl implements MemberDAO{
 
 		return sqlSession.selectOne(NAMESPACE+".getMember",userid);
 	}
-	
-	
-	
+
+	@Override
+	public int updateMember(MemberVO uvo) {
+		logger.debug("updateMember(MemberVO uvo) 호출");
+		
+		return sqlSession.update(NAMESPACE + ".updateMember", uvo);
+	}
+
+
+
+
 	
 	
 	
