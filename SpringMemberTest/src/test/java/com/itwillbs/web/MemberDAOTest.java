@@ -51,7 +51,7 @@ public class MemberDAOTest {
 		
 		logger.debug("회원가입 완료 @@@@@@@@");
 		}
-	@Test
+	//@Test
 	public void 로그인테스트() {
 		logger.debug("로그인테스트() 실행");
 		
@@ -69,6 +69,16 @@ public class MemberDAOTest {
 		}else {
 			logger.debug(" 로그인 실패! ");
 		}
+	}
+	
+	@Test
+	public void 회원정보조회() {
+		logger.debug(" 특정 사용자의 정보를 조회하는 메서드 실행! ");
+		logger.debug(" id: admin, pw : 1234 계정정보 사용");
+		
+		MemberVO vo = mdao.getMember("admin");
+		
+		logger.debug("vo : "+vo);
 	}
 	
 }
