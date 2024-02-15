@@ -10,9 +10,9 @@ public interface MemberService {
 	// 회원가입
 	public void memberJoin(MemberVO vo);
 	
-	//로그인
+	// 로그인
 	public MemberVO memberLogin(MemberVO vo);
 	
-	
-	
+	// 회원정보
+	public MemberVO memberInfo(String id);
 }

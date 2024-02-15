@@ -23,6 +23,10 @@
 	
 	<hr>
 	
+	<h3><a href=/member/info> 회원정보 조회</a></h3>
+	
+	
+	
 	
 	
 </body>
