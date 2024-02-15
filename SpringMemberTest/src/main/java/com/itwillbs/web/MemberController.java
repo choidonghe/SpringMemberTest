@@ -117,6 +117,26 @@ public class MemberController {
 		
 		return "redirect:/member/update";
 	}
+	@GetMapping(value = "/delete")
+	public String memberDeleteGET() {
+		logger.debug("memberDeleteGET() 실행");
+		
+		return "/member/delete";
+	}
 	
+	@PostMapping(value = "delete")
+	public String memberDeletePOST(MemberVO vo,HttpSession session) {
+		logger.debug("memberDeletePOST() 실행");
+	
+		int result = mService.memberDelete(vo);
+		
+		if(result == 1) {
+			session.invalidate();
+		
+			logger.debug(" 삭제 성공!! -> 메인페이지 ");
+			return "redirect:/member/main";
+	}
+		return "redirect:/member/delete";
+	}
 	
 }
