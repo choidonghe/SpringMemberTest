@@ -12,4 +12,7 @@ public interface MemberService {
 	
 	//로그인
 	public MemberVO memberLogin(MemberVO vo);
+	
+	
+	
 }

@@ -66,6 +66,22 @@ public class MemberController {
 		
 		return "redirect:" + addr;
 	}
+	@GetMapping(value = "/main")
+	public String memberMainGET() {
+		logger.debug("memberMainGET()실행");
+		
+		return "/member/main";
+	}
+	
+	@GetMapping(value = "/logout")
+	public String memberLogout(HttpSession session) {
+		logger.debug(" memberLogout() 실행");
+		
+		session.invalidate();
+		
+		return "redirect:/member/login";
+		
+	}
 	
 	
 }
