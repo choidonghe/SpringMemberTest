@@ -81,7 +81,7 @@ public class MemberDAOTest {
 		logger.debug("vo : "+vo);
 	}
 	
-	@Test
+	//@Test
 	public void 회원정보수정() {
 		logger.debug(" 회원정보 수정() 호출");
 		
@@ -91,6 +91,24 @@ public class MemberDAOTest {
 		uvo.setUsername("수정관리자");
 		
 		mdao.updateMember(uvo);
+		
+	}
+	
+	@Test
+	public void 회원정보삭제() {
+		logger.debug(" 회원정보 삭제() 호출");
+		
+		MemberVO dvo = new MemberVO();
+		dvo.setUserid("admin");
+		dvo.setUserpw("1234");
+		
+		int result = mdao.deleteMember(dvo);
+		
+		if(result == 1) {
+			logger.debug(" 회원정보 삭제 성공! ");
+		}else {
+			logger.debug(" 회원정보 삭제 실패! ");
+		}
 		
 	}
 	
