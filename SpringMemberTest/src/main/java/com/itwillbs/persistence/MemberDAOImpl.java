@@ -1,5 +1,7 @@
 package com.itwillbs.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -70,6 +72,15 @@ public class MemberDAOImpl implements MemberDAO{
 		
 	}
 
+	@Override
+	public List<MemberVO> getMemberList() {
+		logger.debug("getMemberList() 호출");
+		
+		return sqlSession.selectList(NAMESPACE+ ".getMemberList");
+	}
+
+	
+	
 
 	
 	

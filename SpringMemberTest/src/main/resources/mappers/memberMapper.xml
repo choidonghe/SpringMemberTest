@@ -40,4 +40,9 @@
 		where userid=#{userid} and userpw=#{userpw}
 	</delete>
 	
+	<!-- 회원목록 -->
+	<select id="getMemberList" resultType="MemberVO">
+		select * from tbl_member
+	</select>
+	
 	</mapper>

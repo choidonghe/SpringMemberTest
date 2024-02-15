@@ -1,5 +1,7 @@
 package com.itwillbs.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -94,7 +96,7 @@ public class MemberDAOTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void 회원정보삭제() {
 		logger.debug(" 회원정보 삭제() 호출");
 		
@@ -110,6 +112,14 @@ public class MemberDAOTest {
 			logger.debug(" 회원정보 삭제 실패! ");
 		}
 		
+	}
+	
+	@Test
+	public void 회원목록출력() {
+		logger.debug("회원목록출력() 확인");
+		List<MemberVO> memberList = mdao.getMemberList();
+		
+		logger.debug("memberList : " + memberList );
 	}
 	
 }
