@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.MemberVO;
+
 @Repository
 public class MemberDAOImpl implements MemberDAO{
 
@@ -28,5 +30,16 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return time;
 	}
+
+	@Override
+	public void insertMember(MemberVO vo) {
+		
+		logger.debug(" insertMember(MemberVO vo) 실행");
+		
+		sqlSession.insert(NAMESPACE + ".insertMember", vo);
+		
+	}
+	
+	
 
 }

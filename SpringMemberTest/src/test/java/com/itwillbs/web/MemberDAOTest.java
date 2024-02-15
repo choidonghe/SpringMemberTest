@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.itwillbs.domain.MemberVO;
 import com.itwillbs.persistence.MemberDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,7 +24,7 @@ public class MemberDAOTest {
 	private static final Logger logger 
 	= LoggerFactory.getLogger(MemberDAOTest.class);
 	
-	@Test
+	//@Test
 	public void 시간정보조회() {
 		System.out.println(" Test : 시간정보조회() 실행");
 		logger.info(" Test : 시간정보조회() 실행");
@@ -32,5 +33,22 @@ public class MemberDAOTest {
 		String time = mdao.gettime();
 		System.out.println(" Test : 결과 : " + time);
 		logger.info(" Test : 결과 : " + time);
+		}
+	
+	@Test
+	public void 회원가입테스트() {
+		logger.debug("회원가입테스트() 실행");			
+		logger.debug(" DAO 회원가입 메서드 호출");
+			
+		MemberVO vo = new MemberVO();
+		
+		vo.setUserid("admin12");
+		vo.setUserpw("1234");
+		vo.setUsername("관리자");
+		vo.setUseremail("admin@admin.com");
+		
+		mdao.insertMember(vo);
+		
+		logger.debug("회원가입 완료 @@@@@@@@");
 		}
 }
