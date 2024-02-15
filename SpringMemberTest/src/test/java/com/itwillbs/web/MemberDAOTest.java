@@ -35,14 +35,14 @@ public class MemberDAOTest {
 		logger.info(" Test : 결과 : " + time);
 		}
 	
-	@Test
+	//@Test
 	public void 회원가입테스트() {
 		logger.debug("회원가입테스트() 실행");			
 		logger.debug(" DAO 회원가입 메서드 호출");
 			
 		MemberVO vo = new MemberVO();
 		
-		vo.setUserid("admin12");
+		vo.setUserid("admin");
 		vo.setUserpw("1234");
 		vo.setUsername("관리자");
 		vo.setUseremail("admin@admin.com");
@@ -51,4 +51,24 @@ public class MemberDAOTest {
 		
 		logger.debug("회원가입 완료 @@@@@@@@");
 		}
+	@Test
+	public void 로그인테스트() {
+		logger.debug("로그인테스트() 실행");
+		
+		//임시 사용자 계정
+		MemberVO vo = new MemberVO();
+		vo.setUserid("admin"); // 가정) Member - ID
+		vo.setUserpw("1234"); // 가정) Board - BNO
+		
+		//MemberVO resultvo = mdao.loginMember(vo);
+		MemberVO resultvo = mdao.loginMember(vo);
+		
+		if(resultvo != null) {
+			logger.debug(" 로그인 성공! ");
+			logger.debug(" 메인페이지로 이동 ");
+		}else {
+			logger.debug(" 로그인 실패! ");
+		}
+	}
+	
 }

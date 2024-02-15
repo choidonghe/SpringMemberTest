@@ -39,6 +39,16 @@ public class MemberDAOImpl implements MemberDAO{
 		sqlSession.insert(NAMESPACE + ".insertMember", vo);
 		
 	}
+
+	@Override
+	public MemberVO loginMember(MemberVO vo) {
+		
+		MemberVO resultVO = sqlSession.selectOne(NAMESPACE+".loginMember", vo);
+		
+		return resultVO;
+	}
+	
+	
 	
 	
 
