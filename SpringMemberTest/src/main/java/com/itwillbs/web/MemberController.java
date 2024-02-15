@@ -1,5 +1,7 @@
 package com.itwillbs.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -137,6 +139,22 @@ public class MemberController {
 			return "redirect:/member/main";
 	}
 		return "redirect:/member/delete";
+	}
+	@GetMapping(value = "/list")
+	public String memberListGET(HttpSession session, MemberVO vo, Model model) {
+		logger.debug("memberListGET() 실행");
+		
+		String id = (String)session.getAttribute("id");
+		
+		if( id == null || !id.equals("admin")) {
+			return "redirect:/member/login";
+		}
+		
+		List<MemberVO> memberList = mService.memberList();
+		
+		model.addAttribute("memberList", memberList);
+		
+		return "/member/list";
 	}
 	
 }

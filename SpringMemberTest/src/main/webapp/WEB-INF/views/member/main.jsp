@@ -29,6 +29,9 @@
 	
 	<h3><a href=/member/delete>회원정보 삭제</a></h3>
 	
+	<c:if test="${!empty id && id.equals('admin')}">
+	<h3><a href=/member/list>회원정보 목록</a></h3>
+	</c:if>
 	
 	
 	
