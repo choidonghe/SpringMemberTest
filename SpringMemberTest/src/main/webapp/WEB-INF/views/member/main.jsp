@@ -25,6 +25,8 @@
 	
 	<h3><a href=/member/info> 회원정보 조회</a></h3>
 	
+	<h3><a href=/member/update>회원정보 수정</a></h3>
+	
 	
 	
 	

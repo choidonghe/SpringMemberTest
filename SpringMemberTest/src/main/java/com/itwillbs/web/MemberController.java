@@ -94,5 +94,29 @@ public class MemberController {
 		model.addAttribute("resultVO", resultVO);
 	}
 	
+	@GetMapping(value = "/update")
+	public void memberUpdateGET(HttpSession session, Model model) {
+		logger.debug("memberUpdateGET() 실행");
+		
+		String id = (String) session.getAttribute("id");
+		
+		MemberVO resultVO = mService.memberInfo(id);
+		
+		model.addAttribute("resultVO", resultVO);
+	}
+	@PostMapping(value = "/update")
+	public String memberUpdatePOST(MemberVO vo) {
+		logger.debug("memberUpdatePOST() 실행");
+		
+		int result = mService.memberUpdate(vo);
+		
+		if(result == 1) {
+			logger.debug(" 수정 성공!! -> 메인페이지 ");
+			return "redirect:/member/main";
+		}
+		
+		return "redirect:/member/update";
+	}
+	
 	
 }
